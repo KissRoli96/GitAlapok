@@ -1,0 +1,49 @@
+ // létrehozok egy mylocalrepo mappat -> belelépek --> és csinálok egy Git repository-t(helyi könyvtar) 
+mkdir mylocalrepo && cd mylocalrepo && git init
+ 
+ //Helyezzük el a verziókövető rendszerben a fájlokat (szinpadba teszed)
+git add fajneve
+pl:git add test.txt
+pl: git '*.txt'
+
+git commit -m "ide irom, hogy mit csinaltam fajlba"
+//tavoli repoba tudod tenni a fajlokat 
+git remote add origin http://gitlab-okt.sed.hu/IB153l-14_IMDBHuliganok/IMDBHuliganok.git
+
+git push -u origin master
+git push -u origin development
+
+
+git status
+//napló fajl az adott repoba kiirja a comitokat 
+git log
+
+ git show
+
+//tavoli szerverol leszedi a fajlokat a master branchbol
+git pull origin master
+
+//ha bugos a pull ezzel biztosan müködni fog 
+git pull origin master --allow-unrelated-histories
+
+//repok kozotti kulonbseg mutatja be
+git diff
+pl : git diff leiras.txt green: uj dolgot jelzi red: a torolt dolgokat mutatja
+
+//legutobbi verziot mutatja be a repok kozott
+git HEAD
+
+// a szinpadon levo fajlok kulonbsegeit mutatja meg 
+git diff --staged
+//
+git diff --cached
+
+//leveszi a szinpadrol a valtoztatasokat
+git reset test.txt 
+
+//fajl eredeti allapotba helyezes az osszes valtoztast kitorli  
+git  checkout -- fajlneve
+git checkout -- test.txt
+
+//leszedi a tavoli repo tartalmat a local repodra.  
+git clone http://gitlab-okt.sed.hu/IB153l-14_IMDBHuliganok/IMDBHuliganok.git
